@@ -6,11 +6,9 @@ def print_board(board):
         print("-" * 5)
     print("\n")
 def check_winner(board, player):
-    # Check rows
     for row in board:
         if all(s == player for s in row):
             return True
-    # Check columns
     for col in range(3):
         if all(board[row][col] == player for row in range(3)):
             return True
@@ -22,7 +20,7 @@ def is_full(board):
     return all(cell != " " for row in board for cell in row)
 def get_computer_move(board):
     empty_cells = [(r, c) for r in range(3) for c in range(3) if board[r][c] == " "]
-    return random.choice(empty_cells)  # Pick a random empty cell
+    return random.choice(empty_cells)
 def tic_tac_toe():
     board = [[" " for _ in range(3)] for _ in range(3)]
     human = "X"
@@ -61,4 +59,5 @@ def tic_tac_toe():
             print_board(board)
             print("It's a tie!")
             break
+
 tic_tac_toe()
